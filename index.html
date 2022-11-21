@@ -1,9 +1,30 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Sop</title>
+    <script>
+        window.onload = function () {
+            const host = window.location.host;
+            let path = window.location.pathname;
+            if (path.endsWith('index.html')) {
+                path = path.substr(path, path.length - 'index.html'.length);
+            }
+            const instanceId = Math.random().toString(36).substring(2, 15);
+            const url = `https://github.com/SophiagDotart/my_new_map/blob/gh-pages/map.json`;
+            document.getElementById('testMapURL').href = url;
+            document.getElementById('testMapBtnURL').href = url;
+            document.getElementById('testMapURL').innerText = url;
+
+            const jsonURL = window.location.protocol + '//' + window.location.host + path + 'map.json';
+            document.getElementById('jsonURL').innerText = jsonURL;
+
+            const gettingStartedLink = 'https://workadventu.re/getting-started?name=Map&mapUrl=' + jsonURL;
+            document.getElementById('gettingStartedLink').href = gettingStartedLink;
+        };
+    </script>
 </head>
 <body>
     <h1>Name</h1>
